@@ -32,6 +32,14 @@ const reqHeaders = {
   lastfm:        { 'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json' },
   lastfm_artist: { 'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json' },
   lastfm_tag:    { 'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json' },
+  lastfm_jpop:     { 'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json' },
+  lastfm_cantopop: { 'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json' },
+  lastfm_mandopop: { 'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json' },
+  lastfm_chinese:  { 'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json' },
+  lastfm_korean:   { 'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json' },
+  lastfm_japanese: { 'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json' },
+  lastfm_british:  { 'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json' },
+  lastfm_american: { 'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json' },
 };
 
 const fetchUrl = (url, headers, redirectCount = 0) => new Promise((resolve, reject) => {
