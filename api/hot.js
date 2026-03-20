@@ -97,7 +97,10 @@ const parse = (type, body) => {
   if (type === 'espn')          return (d.articles || []).slice(0,20).map(i => ({ title: i.headline || '', hot: i.categories?.[0]?.description || '' }));
   if (type === 'lastfm')        return (d.tracks?.track || []).slice(0,30).map(i => ({ title: (i.name||'') + (i.artist?.name ? ' - '+i.artist.name : ''), hot: i.playcount ? Number(i.playcount).toLocaleString()+'次' : '' }));
   if (type === 'lastfm_artist') return (d.artists?.artist || []).slice(0,30).map(i => ({ title: i.name || '', hot: i.playcount ? Number(i.playcount).toLocaleString()+'次' : '' }));
-  if (type === 'lastfm_kpop') return (d.tracks?.track || []).slice(0,30).map(i => ({ title: (i.name||'') + (i.artist?.name ? ' - '+i.artist.name : ''), hot: i.playcount ? Number(i.playcount).toLocaleString()+'次' : '' }));
+  if (type === 'lastfm_kpop' || type === 'lastfm_jpop' || type === 'lastfm_cantopop' ||
+      type === 'lastfm_mandopop' || type === 'lastfm_chinese' || type === 'lastfm_korean' ||
+      type === 'lastfm_japanese' || type === 'lastfm_british' || type === 'lastfm_american')
+    return (d.tracks?.track || []).slice(0,30).map(i => ({ title: (i.name||'') + (i.artist?.name ? ' - '+i.artist.name : ''), hot: i.playcount ? Number(i.playcount).toLocaleString()+'次' : '' }));
   return [];
 };
 
