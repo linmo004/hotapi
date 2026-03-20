@@ -11,7 +11,7 @@ const sources = {
   espn:          'https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?limit=20',
   lastfm:        `https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=${LASTFM_KEY}&format=json&limit=30`,
   lastfm_artist: `https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=${LASTFM_KEY}&format=json&limit=30`,
-  lastfm_tag:    `https://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=kpop&api_key=${LASTFM_KEY}&format=json&limit=30`,
+  lastfm_kpop: `https://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=kpop&api_key=${LASTFM_KEY}&format=json&limit=30`,
   lastfm_jpop:     `https://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=j-pop&api_key=${LASTFM_KEY}&format=json&limit=30`,
   lastfm_cantopop: `https://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=cantopop&api_key=${LASTFM_KEY}&format=json&limit=30`,
   lastfm_mandopop: `https://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=mandopop&api_key=${LASTFM_KEY}&format=json&limit=30`,
@@ -31,7 +31,7 @@ const reqHeaders = {
   espn:          { 'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json' },
   lastfm:        { 'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json' },
   lastfm_artist: { 'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json' },
-  lastfm_tag:    { 'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json' },
+  lastfm_kpop:    { 'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json' },
   lastfm_jpop:     { 'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json' },
   lastfm_cantopop: { 'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json' },
   lastfm_mandopop: { 'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json' },
@@ -97,7 +97,7 @@ const parse = (type, body) => {
   if (type === 'espn')          return (d.articles || []).slice(0,20).map(i => ({ title: i.headline || '', hot: i.categories?.[0]?.description || '' }));
   if (type === 'lastfm')        return (d.tracks?.track || []).slice(0,30).map(i => ({ title: (i.name||'') + (i.artist?.name ? ' - '+i.artist.name : ''), hot: i.playcount ? Number(i.playcount).toLocaleString()+'次' : '' }));
   if (type === 'lastfm_artist') return (d.artists?.artist || []).slice(0,30).map(i => ({ title: i.name || '', hot: i.playcount ? Number(i.playcount).toLocaleString()+'次' : '' }));
-  if (type === 'lastfm_tag')    return (d.tracks?.track || []).slice(0,30).map(i => ({ title: (i.name||'') + (i.artist?.name ? ' - '+i.artist.name : ''), hot: i.playcount ? Number(i.playcount).toLocaleString()+'次' : '' }));
+  if (type === 'lastfm_kpop') return (d.tracks?.track || []).slice(0,30).map(i => ({ title: (i.name||'') + (i.artist?.name ? ' - '+i.artist.name : ''), hot: i.playcount ? Number(i.playcount).toLocaleString()+'次' : '' }));
   return [];
 };
 
