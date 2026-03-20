@@ -12,6 +12,14 @@ const sources = {
   lastfm:        `https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=${LASTFM_KEY}&format=json&limit=30`,
   lastfm_artist: `https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=${LASTFM_KEY}&format=json&limit=30`,
   lastfm_tag:    `https://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=kpop&api_key=${LASTFM_KEY}&format=json&limit=30`,
+  lastfm_jpop:     `https://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=j-pop&api_key=${LASTFM_KEY}&format=json&limit=30`,
+  lastfm_cantopop: `https://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=cantopop&api_key=${LASTFM_KEY}&format=json&limit=30`,
+  lastfm_mandopop: `https://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=mandopop&api_key=${LASTFM_KEY}&format=json&limit=30`,
+  lastfm_chinese:  `https://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=chinese&api_key=${LASTFM_KEY}&format=json&limit=30`,
+  lastfm_korean:   `https://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=korean&api_key=${LASTFM_KEY}&format=json&limit=30`,
+  lastfm_japanese: `https://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=japanese&api_key=${LASTFM_KEY}&format=json&limit=30`,
+  lastfm_british:  `https://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=british&api_key=${LASTFM_KEY}&format=json&limit=30`,
+  lastfm_american: `https://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=american&api_key=${LASTFM_KEY}&format=json&limit=30`,
 };
 
 const reqHeaders = {
